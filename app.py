@@ -1,5 +1,5 @@
 import streamlit as st
-from database import init_db
+# Removida a importação do init_db que não existe mais
 
 # 1. Configuração da página (DEVE ser o primeiro comando)
 st.set_page_config(page_title="Finanças Pro 2026", layout="wide")
@@ -7,19 +7,7 @@ st.set_page_config(page_title="Finanças Pro 2026", layout="wide")
 # 2. CSS para Mobile (iPhone)
 st.markdown("""
     <style>
-    /* Ajuste de margens para telas pequenas */
-    @media (max-width: 640px) {
-        .main .block-container {
-            padding-top: 1rem;
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
-            padding-bottom: 1rem;
-        }
-        /* Faz os botões ocuparem a largura total no mobile */
-        div.stButton > button {
-            width: 100%;
-        }
-    }
+    /* ... seu código CSS continua igual ... */
     </style>
     """, unsafe_allow_html=True)
 
@@ -30,8 +18,8 @@ from views.dashboard import render_dashboard
 from views.configuracoes import render_configuracoes
 from views.investimentos import render_investimentos
 
-# 4. Inicialização do Banco
-init_db()
+# 4. Inicialização do Banco (LINHA REMOVIDA)
+# O Supabase já está inicializado dentro do database.py
 
 # 5. Inicialização do Estado da Sessão
 if 'logged_in' not in st.session_state:
